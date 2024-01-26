@@ -1,0 +1,201 @@
+header,
+footer {
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  // box-shadow: $boxShadow;
+  @include flex(row, space-between, center);
+  padding: $paddingContainerLarge;
+  background-color: $colorWhite;
+  > .logo > a {
+    @include flex(column, center, flex-start);
+  }
+  > .search-container {
+    @include flex(row, center, center);
+  }
+
+  > .profile-favorite {
+    font-size: 30px;
+    width: 7%;
+    @include flex(row, space-between, center);
+    cursor: pointer;
+  }
+}
+
+.favorite-icon-header {
+  color: $colorAction;
+}
+
+.footerlist li {
+  display: inline-block;
+  padding: 1rem;
+}
+
+// makes header box shadow extend beyond max with of website
+
+header:before,
+footer:before {
+  content: "";
+  box-shadow: $boxShadow;
+  position: absolute;
+  height: 100%;
+  width: 98.8vw;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0px);
+  z-index: -1;
+  // overflow: hidden;
+}
+
+.search-container {
+  .search-options {
+    @include flex(row, center, center);
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    min-width: 400px;
+    margin-right: $marginMedium;
+    svg {
+      margin-right: $marginMedium;
+    }
+    > button {
+      padding: $paddingContainerMedium;
+      background-color: $colorWhite;
+      color: $colorBlack;
+    }
+  }
+  > .button {
+    background-color: $colorPrimary;
+  }
+}
+
+.modal-container {
+  width: auto;
+  overflow-y: scroll;
+  border: $borderRadius;
+  box-shadow: $boxShadow;
+  background-color: $colorWhite;
+  max-height: 85vh;
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translate(-50%, 0px);
+  z-index: 999;
+  > .search-options-popup {
+    padding: $paddingContainerLarge $paddingContainerLarge
+      $paddingContainerLarge 0;
+    @include flex(column, center, center);
+    > * {
+      margin-bottom: $marginLarge;
+    }
+    > button {
+      align-self: flex-end;
+      background-color: $colorPrimary;
+    }
+    > label,
+    strong,
+    ul,
+    small {
+      align-self: flex-start;
+      margin: 0 0 $marginSmall 9.5%;
+    }
+    input,
+    ul {
+      margin-bottom: $marginLarge;
+    }
+    > input {
+      width: 80%;
+      border: 0px;
+    }
+    > ul {
+      @include flex(row, flex-start, center);
+      flex-wrap: wrap;
+
+      > li {
+        margin: 0 $marginLarge $marginMedium 0;
+        color: $colorLink;
+        cursor: pointer;
+      }
+    }
+
+    .active {
+      color: $colorAction;
+      font-weight: 700;
+    }
+
+    // Where
+    .worldmap {
+      width: 80%;
+      > svg {
+        max-height: 50vh;
+        margin-top: $marginSmall;
+        > path.active {
+          fill: $colorAction;
+        }
+        > path {
+          fill: $colorGray;
+          &:hover {
+            fill: $colorAction;
+            opacity: 75%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    // When
+    > .calendar-container {
+      @include flex(row, center, center);
+      > .calendar {
+        padding: $paddingContainerSmall;
+        > strong {
+          margin-left: 25px;
+        }
+      }
+    }
+
+    // Who
+    .room-options-container {
+      width: 90%;
+      margin-left: 2.6rem;
+      @include flex(row, flex-start, center);
+      > .counter-container {
+        > p {
+          margin: $marginSmall;
+        }
+        @include flex(row, center, center);
+        > .counter {
+          @include flex(row, center, center);
+          box-shadow: $boxShadow;
+          border-radius: 20px;
+          width: 100px;
+          height: 24px;
+          padding: $paddingContainerMedium;
+          margin: 0px $marginLarge 0 0;
+          > * {
+            margin: 0.5rem;
+            font-family: $fontText;
+            font-weight: bold;
+          }
+          > div {
+            font-size: 1.5rem;
+          }
+          > div::selection {
+            color: none;
+            background: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Calendar picker color
+.css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
+.css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover {
+  background-color: $colorAction !important;
+}
+
+@media (min-width: 1750px) {
+  .modal-container {
+    overflow: hidden;
+  }
+}

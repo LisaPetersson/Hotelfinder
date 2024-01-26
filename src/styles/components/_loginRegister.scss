@@ -1,0 +1,79 @@
+.log-in-section {
+  z-index: 10000;
+  width: 60%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: $colorWhite;
+  box-shadow: $boxShadow;
+  border-radius: $borderRadius;
+  &:focus {
+    border: none !important;
+  }
+  > .close-overlay {
+    float: right;
+    border: none;
+    margin: $marginMedium;
+    color: $colorAction;
+    border: none;
+    font-size: 18px;
+    background: none;
+    cursor: pointer;
+  }
+  > .log-in-section-inner {
+    padding: $paddingContainerMedium;
+    @include flex(column, center, center);
+    > h1 {
+      margin-bottom: $marginLarge;
+    }
+    > .log-in-BTN {
+      width: 260px;
+      margin: $marginMedium 0 $marginMedium 0;
+    }
+    > .disabled {
+      background-color: $colorGray;
+    }
+    > div {
+      > input {
+        margin-bottom: $marginMedium;
+        // border: 2px solid red;
+      }
+    }
+  }
+}
+
+.divBTN {
+  background-color: rgb(233, 233, 233);
+  border-radius: $borderRadius;
+  padding: $paddingContainerSmall $paddingContainerLarge;
+  @include flex(row, center, center);
+  margin: $marginMedium 0 $marginMedium 0;
+  width: 275px;
+}
+
+.divBTN:hover {
+  background-color: rgba(233, 233, 233, 0.418);
+  cursor: pointer;
+}
+
+input[type="email"],
+input[type="password"] {
+  border: none;
+  margin-top: $marginSmall;
+}
+
+.new-account p {
+  font-weight: bold;
+  text-align: center;
+  margin: $marginMedium;
+}
+
+.login-register {
+  @include flex(row, center, center);
+  button:first-child {
+    margin-right: $marginMedium;
+    color: $colorBlack;
+    background-color: $colorWhite;
+  }
+}

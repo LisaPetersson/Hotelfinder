@@ -1,0 +1,1326 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+}
+
+*:focus {
+  border: 2px solid black !important;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  max-width: 1440px;
+  width: 100%;
+}
+body > #root > .site-wrapper > main {
+  padding: 2rem;
+}
+
+h1,
+h2,
+h3,
+p,
+button,
+a,
+strong,
+label,
+input,
+textarea,
+li,
+small,
+th,
+td,
+select {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+small {
+  font-size: 0.75rem;
+}
+
+strong,
+label {
+  font-weight: 700;
+}
+
+a {
+  color: #0175e3;
+  cursor: pointer;
+}
+
+span {
+  color: #a41752;
+}
+
+.button {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: 700;
+  background-color: #a41752;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  min-width: 5rem;
+  cursor: pointer;
+}
+.button:hover {
+  opacity: 75%;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+textarea {
+  min-width: 350px;
+  max-width: 600px;
+  min-height: 100px;
+  max-height: 300px;
+}
+
+input[type=text],
+input[type=time],
+input[type=email],
+input[type=tel],
+input[type=number],
+input[type=month],
+select,
+option {
+  all: unset;
+  padding: 0.5rem;
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+input[type=checkbox] {
+  accent-color: #4a376d;
+  margin-left: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+::-webkit-scrollbar {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 10px;
+}
+
+header,
+footer {
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background-color: #ffffff;
+}
+header > .logo > a,
+footer > .logo > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+header > .search-container,
+footer > .search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+header > .profile-favorite,
+footer > .profile-favorite {
+  font-size: 30px;
+  width: 7%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.favorite-icon-header {
+  color: #a41752;
+}
+
+.footerlist li {
+  display: inline-block;
+  padding: 1rem;
+}
+
+header:before,
+footer:before {
+  content: "";
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  position: absolute;
+  height: 100%;
+  width: 98.8vw;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0px);
+  z-index: -1;
+}
+
+.search-container .search-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 6px;
+  min-width: 400px;
+  margin-right: 1rem;
+}
+.search-container .search-options svg {
+  margin-right: 1rem;
+}
+.search-container .search-options > button {
+  padding: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+}
+.search-container > .button {
+  background-color: #4a376d;
+}
+
+.modal-container {
+  width: auto;
+  overflow-y: scroll;
+  border: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #ffffff;
+  max-height: 85vh;
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translate(-50%, 0px);
+  z-index: 999;
+}
+.modal-container > .search-options-popup {
+  padding: 2rem 2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container > .search-options-popup > * {
+  margin-bottom: 2rem;
+}
+.modal-container > .search-options-popup > button {
+  align-self: flex-end;
+  background-color: #4a376d;
+}
+.modal-container > .search-options-popup > label,
+.modal-container > .search-options-popup strong,
+.modal-container > .search-options-popup ul,
+.modal-container > .search-options-popup small {
+  align-self: flex-start;
+  margin: 0 0 0.5rem 9.5%;
+}
+.modal-container > .search-options-popup input,
+.modal-container > .search-options-popup ul {
+  margin-bottom: 2rem;
+}
+.modal-container > .search-options-popup > input {
+  width: 80%;
+  border: 0px;
+}
+.modal-container > .search-options-popup > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.modal-container > .search-options-popup > ul > li {
+  margin: 0 2rem 1rem 0;
+  color: #0175e3;
+  cursor: pointer;
+}
+.modal-container > .search-options-popup .active {
+  color: #a41752;
+  font-weight: 700;
+}
+.modal-container > .search-options-popup .worldmap {
+  width: 80%;
+}
+.modal-container > .search-options-popup .worldmap > svg {
+  max-height: 50vh;
+  margin-top: 0.5rem;
+}
+.modal-container > .search-options-popup .worldmap > svg > path.active {
+  fill: #a41752;
+}
+.modal-container > .search-options-popup .worldmap > svg > path {
+  fill: #c5c5c5;
+}
+.modal-container > .search-options-popup .worldmap > svg > path:hover {
+  fill: #a41752;
+  opacity: 75%;
+  cursor: pointer;
+}
+.modal-container > .search-options-popup > .calendar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container > .search-options-popup > .calendar-container > .calendar {
+  padding: 0.5rem;
+}
+.modal-container > .search-options-popup > .calendar-container > .calendar > strong {
+  margin-left: 25px;
+}
+.modal-container > .search-options-popup .room-options-container {
+  width: 90%;
+  margin-left: 2.6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.modal-container > .search-options-popup .room-options-container > .counter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container > .search-options-popup .room-options-container > .counter-container > p {
+  margin: 0.5rem;
+}
+.modal-container > .search-options-popup .room-options-container > .counter-container > .counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 20px;
+  width: 100px;
+  height: 24px;
+  padding: 1rem;
+  margin: 0px 2rem 0 0;
+}
+.modal-container > .search-options-popup .room-options-container > .counter-container > .counter > * {
+  margin: 0.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+.modal-container > .search-options-popup .room-options-container > .counter-container > .counter > div {
+  font-size: 1.5rem;
+}
+.modal-container > .search-options-popup .room-options-container > .counter-container > .counter > div::-moz-selection {
+  color: none;
+  background: none;
+}
+.modal-container > .search-options-popup .room-options-container > .counter-container > .counter > div::selection {
+  color: none;
+  background: none;
+}
+
+.css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
+.css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover {
+  background-color: #a41752 !important;
+}
+
+@media (min-width: 1750px) {
+  .modal-container {
+    overflow: hidden;
+  }
+}
+.filter-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+}
+.filter-buttons > button {
+  background-color: #ffffff;
+  color: #000000;
+  margin-left: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.filter-buttons > button:hover {
+  text-decoration: underline;
+}
+
+.sort-button {
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-section {
+  background-color: white;
+  height: 100vh;
+  z-index: 100;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 2rem;
+}
+.filter-section > h2,
+.filter-section h3 {
+  margin: 1rem 0 0.5rem 0;
+}
+.filter-section > .star-rating-filter {
+  font-size: 1.4rem;
+  color: #feb600;
+  margin-top: 0.5rem;
+}
+
+.close-filter-overlay {
+  float: right;
+  color: #a41752;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 25%;
+}
+
+.filter-buttons {
+  margin-bottom: 0.5rem;
+}
+
+section > .space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+section > .space-between > h2,
+section > .space-between button,
+section > .space-between select {
+  margin-bottom: 1rem;
+}
+section > .grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+section > .carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2rem;
+}
+section > .hotels-container {
+  max-width: 100vw;
+  overflow-x: scroll;
+  margin-bottom: 2rem;
+  padding-left: 2px;
+}
+section > .hotels-container > .card-container {
+  width: 275px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+section > .hotels-container > .card-container > img {
+  border-radius: 6px 6px 0 0;
+  margin-bottom: 0.5rem;
+}
+section > .hotels-container > .card-container > .star-container,
+section > .hotels-container > .card-container h3,
+section > .hotels-container > .card-container .card-info,
+section > .hotels-container > .card-container .tags-container,
+section > .hotels-container > .card-container .card-bottom {
+  padding: 0 0.5rem 0px 0.5rem;
+}
+section > .hotels-container > .card-container > .star-container > span > svg {
+  fill: #feb600;
+}
+section > .hotels-container > .card-container > .card-info,
+section > .hotels-container > .card-container .card-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+section > .hotels-container > .card-container > .amenities {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+section > .hotels-container > .card-container > .amenities > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+section > .hotels-container > .card-container > .amenities > div > p {
+  font-size: 0.8rem;
+}
+section > .hotels-container > .card-container .card-bottom {
+  margin-top: 1rem;
+}
+section > .hotels-container > .card-container .card-bottom > .share-heart {
+  font-size: 1.4rem;
+}
+section > .hotels-container > .card-container .card-bottom > .share-heart > svg:first-child {
+  margin-right: 0.5rem;
+}
+section > .hotels-container > .card-container .card-bottom > .share-heart > .filled {
+  z-index: 9999;
+  fill: #a41752;
+}
+
+.review_ratings {
+  margin: 2rem 0 2rem 0;
+}
+
+.review-list {
+  font-style: italic;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+}
+
+.review-text {
+  margin-bottom: 0.5rem !important;
+  padding-right: 0.5rem;
+}
+
+.review-rates svg {
+  fill: #feb600;
+  font-size: 1.2rem;
+}
+
+.log-in-section {
+  z-index: 10000;
+  width: 60%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #ffffff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 6px;
+}
+.log-in-section:focus {
+  border: none !important;
+}
+.log-in-section > .close-overlay {
+  float: right;
+  border: none;
+  margin: 1rem;
+  color: #a41752;
+  border: none;
+  font-size: 18px;
+  background: none;
+  cursor: pointer;
+}
+.log-in-section > .log-in-section-inner {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.log-in-section > .log-in-section-inner > h1 {
+  margin-bottom: 2rem;
+}
+.log-in-section > .log-in-section-inner > .log-in-BTN {
+  width: 260px;
+  margin: 1rem 0 1rem 0;
+}
+.log-in-section > .log-in-section-inner > .disabled {
+  background-color: #c5c5c5;
+}
+.log-in-section > .log-in-section-inner > div > input {
+  margin-bottom: 1rem;
+}
+
+.divBTN {
+  background-color: rgb(233, 233, 233);
+  border-radius: 6px;
+  padding: 0.5rem 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0 1rem 0;
+  width: 275px;
+}
+
+.divBTN:hover {
+  background-color: rgba(233, 233, 233, 0.418);
+  cursor: pointer;
+}
+
+input[type=email],
+input[type=password] {
+  border: none;
+  margin-top: 0.5rem;
+}
+
+.new-account p {
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem;
+}
+
+.login-register {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.login-register button:first-child {
+  margin-right: 1rem;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.profile {
+  background-color: #ffffff;
+  padding: 2rem;
+}
+
+h3 {
+  margin-top: 1rem;
+}
+
+.profile-links,
+.my-profile-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.profile-adress,
+.profile-name,
+.profile-contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-icon {
+  font-size: 40px;
+}
+
+.profile-link-list > li {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.hotel_title {
+  margin-top: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.purple-button {
+  width: 100%;
+  background-color: #4a376d;
+  margin: 2rem 0 0.5rem 0;
+}
+
+.edit-profile-button {
+  margin: 1rem 0 0.5rem 0;
+  background-color: #ffffff;
+  border: none;
+  color: #0175e3;
+}
+
+.bold span {
+  font-weight: bold;
+  color: black;
+}
+
+.rates svg {
+  fill: #feb600;
+  font-size: 1rem;
+}
+
+.font-small {
+  font-size: 0.75rem;
+  margin: 0.5rem 0;
+}
+
+@keyframes slide {
+  from {
+    right: -350px;
+  }
+  to {
+    right: 0px;
+  }
+}
+main > div > .hotel-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+main > div > .hotel-header > .name-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+main > div > .hotel-header > .name-rating > h1 {
+  margin: 0 1rem 0.5rem 0;
+}
+main > div > .hotel-header > .name-rating > span > svg {
+  fill: #feb600;
+  font-size: 1.5rem;
+}
+main > div > .hotel-header > .share-heart {
+  font-size: 1.5rem;
+}
+main > div > .hotel-header > .share-heart svg:first-child {
+  margin-right: 1rem;
+}
+main > div > .image-container {
+  max-width: 100vw;
+  overflow-x: scroll;
+  margin: 2rem 0 2rem 0;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+main > div > .image-container > img {
+  width: 25%;
+  height: 250px;
+}
+main > div > .hotel-section-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+}
+main > div > .hotel-section-container > .hotel-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+  gap: 2rem;
+  width: 45%;
+}
+main > div > .hotel-section-container > .hotel-section > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+  gap: 1rem;
+}
+main .reservation-form-container {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 6px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  align-self: flex-start;
+  gap: 2rem;
+}
+main .reservation-form-container > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+main .reservation-form-container > .buttons > button {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 6px;
+}
+main .reservation-form-container > .buttons > button > strong {
+  margin-left: 1rem;
+}
+main .reservation-form-container > table {
+  border-collapse: collapse;
+  width: 100%;
+}
+main .reservation-form-container > table > thead > tr > th {
+  padding-bottom: 1rem;
+}
+main .reservation-form-container > table > tbody > tr > th,
+main .reservation-form-container > table > tbody td {
+  padding: 0.5rem 2rem 0.5rem 2rem;
+}
+main .reservation-form-container > table > tbody > tr > td {
+  height: 65px;
+}
+main .reservation-form-container > table > tbody > tr > td > .counter-container > .counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 20px;
+  width: 100px;
+  height: 24px;
+  padding: 1rem;
+  margin: 0px 0 0 0;
+}
+main .reservation-form-container > table > tbody > tr > td > .counter-container > .counter > * {
+  margin: 0.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+main .reservation-form-container > table > tbody > tr > td > .counter-container > .counter > div {
+  font-size: 1.5rem;
+}
+main .reservation-form-container > table > tbody > tr > td > .counter-container > .counter > div::-moz-selection {
+  color: none;
+  background: none;
+}
+main .reservation-form-container > table > tbody > tr > td > .counter-container > .counter > div::selection {
+  color: none;
+  background: none;
+}
+main .reservation-form-container > table > thead > .divider,
+main .reservation-form-container > table tbody > .divider {
+  border-bottom: 1px solid #c5c5c5;
+}
+main .reservation-form-container > .checkbox-price,
+main .reservation-form-container .make-reservation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 95%;
+}
+main .reservation-form-container > .checkbox-price > label,
+main .reservation-form-container .make-reservation > label {
+  font-weight: 400;
+}
+main .reservation-form-container > .checkbox-price > h3,
+main .reservation-form-container .make-reservation > h3 {
+  color: #ff4c4c;
+}
+main .reservation-form-container > strong {
+  color: #ff4c4c;
+  margin-top: 0.5rem;
+}
+
+.checkbox-price > label {
+  margin-bottom: 0;
+}
+.checkbox-price > label > input {
+  margin-bottom: 0;
+}
+
+input[type=text],
+input[type=checkbox],
+input[type=time],
+input[type=email],
+input[type=tel] {
+  margin-bottom: 2rem;
+}
+
+label {
+  margin-bottom: 0.5rem;
+}
+
+.success {
+  border: 2px solid #b2ff83 !important;
+}
+
+.error {
+  border: 2px solid #ff4c4c !important;
+}
+
+main > div > .breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+main > div > .breadcrumbs > svg {
+  font-size: 1.5rem;
+  color: #c5c5c5;
+}
+main > div > .breadcrumbs > p {
+  color: #c5c5c5;
+}
+main > div > .breadcrumbs > .breadcrumb-line {
+  background-color: #c5c5c5;
+  width: 35%;
+  height: 2px;
+}
+main > div > .breadcrumbs .finished {
+  color: #000000;
+}
+main > div > .breadcrumbs .finished-line {
+  background-color: #000000;
+}
+main > div > .section-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: calc(2rem * 2);
+  margin-bottom: 2rem;
+}
+main > div > .section-container section {
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+main > div > .section-container section > small,
+main > div > .section-container section form > h3 {
+  margin-bottom: 0.5rem;
+}
+main > div > .section-container section small {
+  margin-bottom: 2rem;
+}
+main > div > .section-container section > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+main > div > .section-container section > form > input[type=text]:focus,
+main > div > .section-container section > form input[type=time]:focus,
+main > div > .section-container section > form input[type=email]:focus,
+main > div > .section-container section > form input[type=tel]:focus {
+  border: 2px solid black;
+}
+main > div > .section-container > .selection-section {
+  grid-area: 1/1/2/2;
+  align-self: start;
+}
+main > div > .section-container > .selection-section > h3,
+main > div > .section-container > .selection-section p,
+main > div > .section-container > .selection-section .dates-container,
+main > div > .section-container > .selection-section .row {
+  margin-bottom: 1rem;
+}
+main > div > .section-container > .selection-section > .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+main > div > .section-container > .selection-section > .row > div > span > svg {
+  fill: #feb600;
+}
+main > div > .section-container > .selection-section > .dates-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+main > div > .section-container > .selection-section > .amenities {
+  border-bottom: 1px solid #c5c5c5;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+main > div > .section-container > .selection-section > .amenities > div > p {
+  margin-bottom: 0;
+}
+main > div > .section-container > .selection-section > .dates-container > .dates {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 6px;
+  width: 47.5%;
+}
+main > div > .section-container > .confirm-details-section {
+  grid-area: 1/2/3/4;
+}
+main > div > .section-container > .confirm-details-section span {
+  font-weight: 700;
+  font-size: 1rem;
+}
+main > div > .section-container > .confirm-details-section > form > .fullName-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+main > div > .section-container > .confirm-details-section > form > .fullName-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-right: 2rem;
+}
+main > div > .section-container > .confirm-details-section > form > input[type=email] {
+  width: 50%;
+  min-width: 250px;
+}
+main > div > .section-container > .confirm-details-section > form > input[type=text]:focus {
+  border: 2px solid black;
+}
+main > div > .section-container > .confirm-details-section > form > p {
+  margin-bottom: 1rem;
+  max-width: 350px;
+}
+main > div > .section-container > .confirm-details-section > form > textarea {
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
+main > div > .section-container > .confirm-details-section > form > .checkbox > label {
+  font-weight: 400;
+}
+main > div > .section-container > .confirm-details-section > form > strong {
+  margin-bottom: 0.5rem;
+}
+main > div > .section-container > .confirm-details-section > form > #checkIn {
+  margin-top: 0.5rem;
+}
+main > div > .section-container > .confirm-details-section > form > .checkout-buttons {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+main > div > .section-container > .confirm-details-section > form > .checkout-buttons > button:first-child {
+  color: #000000;
+  background-color: #ffffff;
+}
+main > div > .section-container > .confirmed-details-section-small {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: start;
+  grid-area: 2/1/2/2;
+  margin-top: -0.5rem;
+}
+main > div > .section-container > .confirmed-details-section-small h3 {
+  margin-bottom: 1rem;
+}
+main > div > .section-container > .confirmed-details-section-small > strong:nth-of-type(3) {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+main > div > .section-container > .confirmed-details-section-small > p:nth-of-type(3) {
+  margin-bottom: 1rem;
+}
+main > div > .section-container > .payment-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  grid-area: 1/2/3/4;
+  align-self: flex-start;
+}
+main > div > .section-container > .payment-section > h3 {
+  margin-bottom: 1rem;
+}
+main > div > .section-container > .payment-section p {
+  margin-bottom: 0.5rem;
+}
+main > div > .section-container > .payment-section > .payment-provider-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+main > div > .section-container > .payment-section > .payment-provider-container > .payment-provider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 125px;
+  height: 60px;
+}
+main > div > .section-container > .payment-section > .payment-provider-container > .payment-provider:first-child {
+  border: 2px solid #b2ff83;
+}
+main > div > .section-container > .payment-section > form {
+  width: 100%;
+}
+main > div > .section-container > .payment-section > form > .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+main > div > .section-container > .payment-section > form > .row > .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+main > div > .section-container > .payment-section > form > .row > .column > input {
+  margin-bottom: 2rem;
+}
+main > div > .section-container > .payment-section > form > .row > .column > #name,
+main > div > .section-container > .payment-section > form > .row > .column #cardNumber,
+main > div > .section-container > .payment-section > form > .row > .column #address {
+  width: 250px;
+}
+main > div > .section-container > .payment-section > form > .row > .column > #expiration {
+  width: 125px;
+}
+main > div > .section-container > .payment-section > form > .row > .column > #cvc {
+  width: 50px;
+}
+main > div > .section-container > .payment-section > form > .row > .column > #zip {
+  width: 75px;
+}
+main > div > .section-container > .payment-section > form > .end-of-card-details {
+  margin-bottom: 2rem;
+}
+main > div > .section-container > .payment-section > form > .checkout-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  gap: 1rem;
+}
+main > div > .section-container > .payment-section > form > .checkout-buttons > button:first-child {
+  color: #000000;
+  background-color: #ffffff;
+}
+main > div > .section-container > .payment-section > form > .checkout-buttons > .disabled {
+  background-color: #c5c5c5;
+}
+main > div > .section-container > .confirmation-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: 1/2/3/4;
+  align-self: flex-start;
+  text-align: center;
+}
+main > div > .section-container > .confirmation-section > h1,
+main > div > .section-container > .confirmation-section h3,
+main > div > .section-container > .confirmation-section .row,
+main > div > .section-container > .confirmation-section svg,
+main > div > .section-container > .confirmation-section button,
+main > div > .section-container > .confirmation-section p {
+  margin-bottom: 2rem;
+}
+main > div > .section-container > .confirmation-section > strong {
+  margin-bottom: 0.5rem;
+}
+main > div > .section-container > .confirmation-section > svg {
+  font-size: 7.5rem;
+  fill: #b2ff83;
+}
+main > div > .section-container > .confirmation-section > .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2rem;
+}
+main > div > .section-container > .confirmation-section > .row > .email-confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main > div > .section-container > .confirmation-section > .row > .email-confirmation > label {
+  margin-left: 30%;
+  width: 100%;
+  font-weight: 400;
+}
+main > div > .section-container > .confirmation-section > .row > .email-confirmation > input {
+  min-width: 95%;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.favorite-section {
+  width: 100%;
+}
+.favorite-section > .filter-buttons {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.share-favorites {
+  width: 100% !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.share-favorites > .share-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.share-favorites > .share-list > p {
+  color: #0175e3;
+}
+
+.share-list {
+  display: flex;
+  flex-direction: "row";
+  justify-content: "center";
+  align-items: "center";
+  gap: 0.5rem;
+}
+.share-list > svg {
+  font-size: 25px;
+  margin-top: -2px;
+}
+.share-list > p {
+  color: #0175e3;
+}
+
+.logo {
+  width: 15%;
+}
+
+.logo img {
+  width: 100%;
+}
+
+main > div > h2 {
+  margin-bottom: 1rem;
+}
+main > div > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+main > div > ul > li {
+  margin: 0 2rem 1rem 0;
+}
+
+.slide {
+  animation: slide 0.45s ease-in-out;
+}
+
+@keyframes slide {
+  from {
+    right: -350px;
+  }
+  to {
+    right: 0px;
+  }
+}
+.back-button {
+  background-color: white;
+  color: #0175e3;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.amenities {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+.amenities > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+}/*# sourceMappingURL=index.css.map */

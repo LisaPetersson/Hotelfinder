@@ -1,0 +1,80 @@
+section {
+  > .space-between {
+    @include flex(row, space-between, center);
+    > h2,
+    button,
+    select {
+      margin-bottom: $marginMedium;
+    }
+  }
+  > .grid {
+    @include flex(row, flex-start, flex-start);
+    flex-wrap: wrap;
+    gap: $marginLarge;
+    > .card-container {
+    }
+  }
+  > .carousel {
+    @include flex(row, flex-start, flex-start);
+    gap: $marginLarge;
+  }
+  > .hotels-container {
+    max-width: 100vw;
+    overflow-x: scroll;
+    margin-bottom: $marginLarge;
+    padding-left: 2px;
+    > .card-container {
+      width: 275px;
+      box-shadow: $boxShadow;
+      border-radius: $borderRadius;
+      cursor: pointer;
+      > img {
+        border-radius: $borderRadius $borderRadius 0 0;
+        margin-bottom: $marginSmall;
+      }
+      > .star-container,
+      h3,
+      .card-info,
+      .tags-container,
+      .card-bottom {
+        padding: 0 $paddingContainerSmall 0px $paddingContainerSmall;
+      }
+      > .star-container {
+        > span > svg {
+          fill: $colorStar;
+        }
+      }
+      > .card-info,
+      .card-bottom {
+        @include flex(row, space-between, center);
+        padding-bottom: $paddingContainerSmall;
+      }
+      > .amenities {
+        @include flex(row, flex-start, center);
+        gap: $marginSmall $marginMedium;
+        flex-wrap: wrap;
+        padding: $paddingContainerSmall;
+        > div {
+          @include flex(row, center, flex-start);
+          gap: $marginSmall;
+          > p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+      .card-bottom {
+        margin-top: $marginMedium;
+        > .share-heart {
+          font-size: $fontSizeH3;
+          > svg:first-child {
+            margin-right: $marginSmall;
+          }
+          > .filled {
+            z-index: 9999;
+            fill: $colorAction;
+          }
+        }
+      }
+    }
+  }
+}

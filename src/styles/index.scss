@@ -1,0 +1,64 @@
+@import "./variables";
+@import "./reset";
+@import "./elements";
+@import "./components/headerFooter";
+@import "./components/filterSection";
+@import "./components/hotelCard";
+@import "./components/review";
+@import "./components/loginRegister";
+@import "./components/profile";
+@import "./pages/hotel";
+@import "./pages/checkout";
+@import "./pages/favorites";
+
+.logo {
+  width: 15%;
+}
+
+.logo img {
+  width: 100%;
+}
+
+main {
+  > div > h2 {
+    margin-bottom: $marginMedium;
+  }
+  > div > ul {
+    @include flex(row, flex-start, center);
+    flex-wrap: wrap;
+    margin-bottom: $marginLarge;
+    > li {
+      margin: 0 $marginLarge $marginMedium 0;
+      // font-weight: 500;
+    }
+  }
+}
+
+.slide {
+  animation: slide 0.45s ease-in-out;
+}
+
+@keyframes slide {
+  from {
+    right: -350px;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+.back-button {
+  background-color: white;
+  color: $colorLink;
+  font-weight: 400;
+  margin-bottom: $marginSmall;
+}
+
+.amenities {
+  @include flex(row, flex-start, center);
+  gap: $marginLarge;
+  > div {
+    @include flex(row, center, flex-start);
+    gap: $marginSmall;
+  }
+}

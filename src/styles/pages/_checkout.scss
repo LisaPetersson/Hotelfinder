@@ -1,0 +1,297 @@
+input[type="text"],
+input[type="checkbox"],
+input[type="time"],
+input[type="email"],
+input[type="tel"] {
+  margin-bottom: $marginLarge;
+}
+label {
+  margin-bottom: $marginSmall;
+}
+
+.success {
+  border: 2px solid $colorSuccess !important;
+}
+.error {
+  border: 2px solid $colorError !important;
+}
+
+main {
+  > div > .breadcrumbs {
+    @include flex(row, space-between, center);
+    margin-bottom: $marginLarge;
+    > svg {
+      font-size: 1.5rem;
+      color: $colorGray;
+    }
+    > p {
+      color: $colorGray;
+    }
+    > .breadcrumb-line {
+      background-color: $colorGray;
+      width: 35%;
+      height: 2px;
+    }
+    .finished {
+      color: $colorBlack;
+    }
+    .finished-line {
+      background-color: $colorBlack;
+    }
+  }
+  > div > .section-container {
+    // width: 60%;
+    // margin-left: 40%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: calc(#{$marginLarge} * 2);
+    margin-bottom: $marginLarge;
+    section {
+      padding: $paddingContainerLarge;
+      border-radius: $borderRadius;
+      box-shadow: $boxShadow;
+      > small,
+      form > h3 {
+        margin-bottom: $marginSmall;
+        // border: 2px solid red;
+      }
+      small {
+        margin-bottom: 2rem;
+      }
+      > form {
+        @include flex(column, flex-start, flex-start);
+        margin-top: $marginMedium;
+        > input[type="text"],
+        input[type="time"],
+        input[type="email"],
+        input[type="tel"] {
+          &:focus {
+            border: 2px solid black;
+          }
+        }
+      }
+    }
+    > .selection-section {
+      grid-area: 1 / 1 / 2 / 2;
+      align-self: start;
+      // border: 2px solid red;
+      > h3,
+      p,
+      .dates-container,
+      .row {
+        margin-bottom: $marginMedium;
+      }
+      > .row {
+        @include flex(row, flex-start, center);
+        // width: 100%;
+        gap: $marginMedium;
+        > div > span > svg {
+          fill: $colorStar;
+        }
+      }
+      > .dates-container {
+        @include flex(row, flex-start, center);
+        gap: $marginMedium;
+        flex-wrap: wrap;
+      }
+      > .amenities {
+        border-bottom: 1px solid $colorGray;
+        margin-bottom: $marginMedium;
+        flex-wrap: wrap;
+        gap: $marginMedium;
+        padding-bottom: $paddingContainerMedium;
+        > div {
+          > p {
+            margin-bottom: 0;
+          }
+        }
+      }
+      > .dates-container > .dates {
+        @include flex(column, center, center);
+        padding: $paddingContainerMedium;
+        box-shadow: $boxShadow;
+        border-radius: $borderRadius;
+        width: 47.5%;
+      }
+    }
+    > .confirm-details-section {
+      grid-area: 1 / 2 / 3 / 4;
+      span {
+        font-weight: 700;
+        font-size: $fontSizeP;
+      }
+      > form {
+        > .fullName-container {
+          @include flex(row, center, center);
+          > div {
+            @include flex(column, center, flex-start);
+            margin-right: $marginLarge;
+          }
+        }
+        > input[type="email"] {
+          width: 50%;
+          min-width: 250px;
+        }
+        > input[type="text"] {
+          &:focus {
+            border: 2px solid black;
+          }
+        }
+        > p {
+          margin-bottom: $marginMedium;
+          max-width: 350px;
+        }
+        > textarea {
+          margin-bottom: $marginLarge;
+          margin-top: $marginSmall;
+        }
+        > .checkbox {
+          > label {
+            font-weight: 400;
+          }
+        }
+        > strong {
+          margin-bottom: $marginSmall;
+        }
+        > #checkIn {
+          margin-top: $marginSmall;
+        }
+        > .checkout-buttons {
+          align-self: flex-end;
+          @include flex(row, center, center);
+          gap: $marginMedium;
+          > button:first-child {
+            color: $colorBlack;
+            background-color: $colorWhite;
+          }
+        }
+      }
+    }
+    > .confirmed-details-section-small {
+      @include flex(column, flex-start, flex-start);
+      align-self: start;
+      grid-area: 2 / 1 / 2 / 2;
+      margin-top: -$marginSmall;
+      h3 {
+        margin-bottom: $marginMedium;
+      }
+      > strong:nth-of-type(3) {
+        margin-top: $marginMedium;
+        margin-bottom: $marginSmall;
+      }
+      > p:nth-of-type(3) {
+        margin-bottom: $marginMedium;
+      }
+    }
+    > .payment-section {
+      @include flex(column, center, flex-start);
+      grid-area: 1 / 2 / 3 / 4;
+      align-self: flex-start;
+      > h3 {
+        margin-bottom: $marginMedium;
+      }
+      p {
+        margin-bottom: $marginSmall;
+      }
+      > .payment-provider-container {
+        @include flex(row, flex-start, flex-start);
+        flex-wrap: wrap;
+        gap: $marginMedium;
+        margin-bottom: $marginLarge;
+        > .payment-provider {
+          &:first-child {
+            border: 2px solid $colorSuccess;
+          }
+          @include flex(row, center, center);
+          border-radius: $borderRadius;
+          box-shadow: $boxShadow;
+          width: 125px;
+          height: 60px;
+        }
+      }
+      > form {
+        width: 100%;
+        > .row {
+          @include flex(row, flex-start, flex-start);
+          gap: $marginLarge;
+          flex-wrap: wrap;
+          > .column {
+            @include flex(column, center, flex-start);
+            > input {
+              margin-bottom: $marginLarge;
+            }
+            > #name,
+            #cardNumber,
+            #address {
+              width: 250px;
+            }
+            > #expiration {
+              width: 125px;
+            }
+            > #cvc {
+              width: 50px;
+            }
+            > #zip {
+              width: 75px;
+            }
+          }
+        }
+        > .end-of-card-details {
+          margin-bottom: $marginLarge;
+        }
+        > .checkout-buttons {
+          @include flex(row, flex-end, flex-end);
+          width: 100%;
+          gap: $marginMedium;
+          > button:first-child {
+            color: $colorBlack;
+            background-color: $colorWhite;
+          }
+          > .disabled {
+            background-color: $colorGray;
+          }
+        }
+      }
+    }
+    > .confirmation-section {
+      @include flex(column, center, center);
+      grid-area: 1 / 2 / 3 / 4;
+      align-self: flex-start;
+      text-align: center;
+      > h1,
+      h3,
+      .row,
+      svg,
+      button,
+      p {
+        margin-bottom: $marginLarge;
+      }
+      > strong {
+        margin-bottom: $marginSmall;
+      }
+      > svg {
+        font-size: 7.5rem;
+        fill: $colorSuccess;
+      }
+      > .row {
+        @include flex(row, center, flex-end);
+        gap: $marginLarge;
+        > .email-confirmation {
+          @include flex(column, center, center);
+          > label {
+            margin-left: 30%;
+            width: 100%;
+            font-weight: 400;
+          }
+          > input {
+            min-width: 95%;
+            align-items: flex-start;
+            text-align: left;
+            padding-left: $paddingContainerMedium;
+          }
+        }
+      }
+    }
+  }
+}
